@@ -7,7 +7,7 @@
 </details>
 
 # Forensic Question 2
-  - Whenever a forensic question asks for anything involving system information like this one does, you can usually just use google (or chatgpt if your emily) and find the command
+  - Whenever a forensic question asks for anything involving system information like this one does, you can usually just use google and find the command
 
   - For this specific question, you need to use the <> command to find the answer.
 
