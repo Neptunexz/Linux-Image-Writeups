@@ -1,5 +1,5 @@
 # Forensic Question 1
-  - From prior knowledge and research you could search in files for files associated with different backdoors.
+  - From prior knowledge and research you could search in files for files associated with different backdoors. This backdoor did not actually have a port set (oops), but generally that is the best starting point during actual cybersecurity challenges. 
   - Hint: appctl
  <details>
     <summary>Answer:</summary>
@@ -7,9 +7,8 @@
 </details>
 
 # Forensic Question 2
-  - Whenever a forensic question asks for anything involving system information like this one does, you can usually just use google and find the command
+  - Whenever a forensic question asks for anything involving system information like this one does, you can usually just use google and find the command, otherwise, make sure to know what commands are needed for system auditing.
 
-  - For this specific question, you need to use the <> command to find the answer.
 
   <details>
     <summary>Answer:</summary>
@@ -85,7 +84,7 @@ Auth:
   [default=die] pam_faillock.so authfail
   sufficient pam_faillock.so authsucc
 
-4.) Create the second file using: /usr/share/pam-configs/faillock_notify
+4.) Create the second file using: sudo touch /usr/share/pam-configs/faillock_notify
 
 5.) Edit the file using: sudo nano /usr/share/pam-configs/faillock_notify
 
@@ -173,7 +172,7 @@ requisite pam_faillock.so preauth
 # Sudo developer mode is disabled
   - Some settings for sudo can be configured in the /etc/sudo.conf file, which we will be taking a look at.
 
-  - Sudo developer mode in particular needs to be disabled because we don't need this enabled. (duh)
+  - Sudo developer mode in particular needs to be disabled because our users do not need to have developer privilages. (duh)
 
  <details>
     <summary>Answer:</summary>
@@ -191,7 +190,7 @@ requisite pam_faillock.so preauth
 </details> 
 
 # Sudo does not probe interfaces
-  - Probes of all kinds are bad, what can i say
+  - This is another one of those common sense practices.
 
  <details>
     <summary>Answer:</summary>
@@ -200,7 +199,7 @@ requisite pam_faillock.so preauth
 </details> 
 
 # Uncomplicated Firewall (UFW) protection is enabled
-  - This is one of those common sense things
+  - This is one of those common sense things.
   - Just run sudo systemctl start ufw
 
 # Squid directory is not world-writable
@@ -256,12 +255,15 @@ requisite pam_faillock.so preauth
 # Firefox Checks the current validity of certificates
   - Just know to configure firefox settings :p
 
-# '' is not a SUID binary
+# 'Wget' is not a SUID binary
   - Run something like chkrootkit or rkhunter to find these SUID binaries.
+  - After you find them, you need to run: sudo chmod -s <file>
 
 # Prohibited software has been removed
   - Literally just know softwares and you can delete them
-  - Run sudo apt autoremove <program>
+  - If you are unsure of a good command for deleting apps/locating apps, check these two out:
+  - sudo apt-mark showmanual
+  - sudo apt autoremove <program>
 
   <details>
     <summary>Answer:</summary>
@@ -312,7 +314,7 @@ requisite pam_faillock.so preauth
   - Minimum protical needs to NOT be SMB1
 
 # Samba SMB2/3 protocol enabled
-  - Make sure protocol is a lot higher
+  - Make sure protocol is a lot higher than SMB1
 
 <details>
     <summary>Answer:</summary>
@@ -325,7 +327,7 @@ requisite pam_faillock.so preauth
 
 <details>
     <summary>Answer:</summary>
-<p> usershare allow guests = yes
+<p> usershare allow guests = no
 </p>
 </details> 
 
@@ -341,6 +343,7 @@ requisite pam_faillock.so preauth
 
 # Samba uses user-level security
   - User level security i guess i dunno
+  - The file should NOT contain what the answer displays, find the actual answer through samba documentation.
 
    <details>
     <summary>Answer:</summary>
@@ -349,7 +352,8 @@ requisite pam_faillock.so preauth
 </details>    
 
 # Samba server signing is mandatory  
-  - sevrer signing is just something to configure
+  - sevrer signing is just something to configure.
+  - Once again, does NOT show the answer, just the wrong answer. Read please.
   
   <details>
     <summary>Answer:</summary>
@@ -359,7 +363,7 @@ requisite pam_faillock.so preauth
 
 # Squid does not allow HTTP connections
   - All squid config is in /etc/squid/squid.conf
-  - HTTPS ONLY!!!!!!!1!1!
+  - HTTPS ONLY!!!!!!!!
 
   <details>
     <summary>Answer:</summary>
@@ -368,7 +372,7 @@ requisite pam_faillock.so preauth
 </details>  
 
 # Squid port set to 443
-  - README tells us to change the port, so change the port 😠
+  - README tells us to change the port, so change the port.
   <details>
     <summary>Answer:</summary>
 <p> http_port 3128
@@ -376,7 +380,7 @@ requisite pam_faillock.so preauth
 </details>  
 
 # Squid has a localhost manager
-  - squid needs a localhost manager, so give it one (use google i dont know)
+  - squid needs a localhost manager. The answer displayed is once again, not the correct answer. read the squid documentation or use google.
 
  <details>
     <summary>Answer:</summary>
@@ -386,8 +390,9 @@ requisite pam_faillock.so preauth
 
 
 # Squid proxy is configured for Firefox
-  - This is one of those firefox things. Google it tbh or ill walk you thru it wink wink
-
+  - This is one of those firefox things.
+  - Go into firefox, and in the genral tab you should have the ability to change the network settings.
+ 
  <details>
     <summary>Answer:</summary>
 <p> 192.175.127.211 & 443 & 1
@@ -395,7 +400,7 @@ requisite pam_faillock.so preauth
 </details> 
 
 # Squid denies icp connections
-  - icp connections are bad bc icp is two rlly weird creeps
+  - icp connections are something we do not want happening, so these two answers are once again, what need to be changed (the wrong answers)
 
  <details>
     <summary>Answer:</summary>
