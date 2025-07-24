@@ -75,8 +75,9 @@
 
 2.) Edit the file using: sudo nano /usr/share/pam-configs/faillock
 
-3.) Copy and paste (indents have to be there): 
-Name: Enforce failed login attempt counter
+3.) Copy and paste (indents have to be there, for the last two values): 
+
+Name: Enforce failed login attempt counter                                                                                                            
 Default: no
 Priority: 0
 Auth-Type: Primary
@@ -89,12 +90,13 @@ Auth:
 5.) Edit the file using: sudo nano /usr/share/pam-configs/faillock_notify
 
 6.) Copy and paste: 
+
 Name: Notify on failed login attempts
 Default: no
 Priority: 1024
 Auth-Type: Primary
 Auth:
-requisite pam_faillock.so preauth
+  requisite pam_faillock.so preauth
 
 7.) run sudo pam-auth-update and check notify on failed login attempts and enforce failed login attempt counter.
 
